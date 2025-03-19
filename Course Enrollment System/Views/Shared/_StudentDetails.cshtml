@@ -1,0 +1,9 @@
+﻿@model DAL.Models.Student
+
+<table class="table">
+    <tr><th>Full Name:</th><td>@Model.FullName</td></tr>
+    <tr><th>Email:</th><td>@Model.Email</td></tr>
+    <tr><th>Birthdate:</th><td>@Model.BirthDate.ToShortDateString()</td></tr>
+    <tr><th>National ID:</th><td>@Model.NationalId</td></tr>
+    <tr><th>Phone Number:</th><td>@Model.PhoneNumber</td></tr>
+</table>

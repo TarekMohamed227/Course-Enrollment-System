@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DAL.Models.Course>
+
+
+<h2>Courses</h2>
+<a asp-action="Create" class="btn btn-primary">Add New Course</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Capacity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.Title</td>
+                <td>@course.Description</td>
+                <td>@course.MaxCapacity</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@course.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@course.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@course.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<nav>
+    <ul class="pagination">
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+            </li>
+        }
+    </ul>
+</nav>

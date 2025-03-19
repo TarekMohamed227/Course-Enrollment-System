@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DAL.Models.Enrollment>
+
+
+<h2>Enrollments</h2>
+<a asp-action="Create" class="btn btn-primary">Enroll a Student</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var enrollment in Model)
+        {
+            <tr>
+                <td>@enrollment.Student?.FullName</td>
+                <td>@enrollment.Course?.Title</td>
+                <td><a asp-action="Delete" asp-route-id="@enrollment.Id" class="btn btn-danger">Unenroll</a></td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
